@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Channel ID",
+    "description": "Displays the ID of YouTube channels",
+    "version": "1.0.0",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/@*",
+                "https://www.youtube.com/channel/*"
+            ],
+            "js": [
+                "./dist/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
