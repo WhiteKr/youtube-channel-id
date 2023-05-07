@@ -15,8 +15,7 @@
             ],
             "js": [
                 "./dist/content.js"
-            ],
-            "run_at": "document_end"
+            ]
         }
     ]
 }
