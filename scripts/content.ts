@@ -3,6 +3,21 @@ const getChannelId = (): string | null => {
     return meta ? meta.getAttribute('content') : null;
 };
 
+const createMessageElement = (): HTMLElement => {
+    const message = document.createElement('span');
+
+    message.style.backgroundColor = '#000';
+    message.style.borderRadius = '0.2em';
+    message.style.color = '#fff';
+    message.style.fontSize = '0.6em';
+    message.style.textAlign = 'center';
+    message.style.padding = '0.3em';
+    message.style.marginLeft = '0.5em';
+    message.textContent = 'ID copied to clipboard!';
+
+    return message;
+};
+
 const createIdElement = (channelId: string, container: HTMLElement): HTMLElement => {
     const span = document.createElement('span');
     span.style.fontSize = '0.7em';
@@ -19,6 +34,12 @@ const createIdElement = (channelId: string, container: HTMLElement): HTMLElement
     });
     span.addEventListener('click', () => {
         navigator.clipboard.writeText(channelId);
+
+        const message = createMessageElement();
+        container.appendChild(message);
+        setTimeout(() => {
+            message.remove();
+        }, 1500);
     });
 
     span.textContent = ` (${channelId})`;
