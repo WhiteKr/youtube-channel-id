@@ -3,10 +3,6 @@
     "name": "YouTube Channel ID",
     "description": "Displays the ID of YouTube channels",
     "version": "1.0.0",
-    "permissions": [
-        "tabs",
-        "activeTab"
-    ],
     "content_scripts": [
         {
             "matches": [
